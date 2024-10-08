@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự đoán Thành tích Sinh viên</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Dự đoán Thành tích Sinh viên</h1>
+    <form method="POST" action="/predict">
+        <label for="Hours_Studied">Số giờ học:</label>
+        <input type="number" name="Hours_Studied" step="1" required><br>
+
+        <label for="Previous_Scores">Điểm số trước đó:</label>
+        <input type="number" name="Previous_Scores" step="1" required><br>
+
+        <label for="Extracurricular_Activities">Hoạt động ngoại khóa (1: Có, 0: Không):</label>
+        <input type="number" name="Extracurricular_Activities" required><br>
+
+        <label for="Sleep_Hours">Số giờ ngủ:</label>
+        <input type="number" name="Sleep_Hours" step="1" required><br>
+
+        <label for="Sample_Question_Papers_Practiced">Số đề ôn tập đã làm:</label>
+        <input type="number" name="Sample_Question_Papers_Practiced" step="1" required><br>
+
+        <input type="submit" value="Dự đoán">
+    </form>
+
+    {% if predictions %}
+        <h2>Kết quả dự đoán:</h2>
+        <ul>
+            <li>Dự đoán = {{ predictions.du_doan }}</li>
+        </ul>
+    {% endif %}
+    
+    {% if error %}
+        <h2 style="color: red;">{{ error }}</h2>
+    {% endif %}
+    
+</body>
+</html>
