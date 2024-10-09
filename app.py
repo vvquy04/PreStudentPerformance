@@ -26,15 +26,15 @@ if lasso_model is None or scaler is None:
     st.error("Không thể tải mô hình hoặc scaler. Vui lòng kiểm tra lại.")
 else:
     # Hiển thị tiêu đề
-    st.title("Dự đoán Thành tích Sinh viên")
+    st.title("Dự đoán hiệu suất học tập học sinh sinh viên")
 
     # Nhập liệu từ người dùng
     st.subheader("Nhập thông tin sinh viên:")
-    hours_studied = st.number_input("Số giờ học", min_value=0, step=1)
-    previous_scores = st.number_input("Điểm số trước đó", min_value=0, step=1)
+    hours_studied = st.number_input("Số giờ học (0-9)", min_value=0, step=1)
+    previous_scores = st.number_input("Điểm số trước đó (0-100)", min_value=0, step=1)
     extracurricular_activities = st.number_input("Hoạt động ngoại khóa (1: Có, 0: Không)", min_value=0, max_value=1, step=1)
-    sleep_hours = st.number_input("Số giờ ngủ", min_value=0, step=1)
-    sample_question_papers_practiced = st.number_input("Số đề ôn tập đã làm", min_value=0, step=1)
+    sleep_hours = st.number_input("Số giờ ngủ (0-9)", min_value=0, step=1)
+    sample_question_papers_practiced = st.number_input("Số đề ôn tập đã làm (0-9)", min_value=0, step=1)
 
     # Khi người dùng nhấn vào nút "Dự đoán"
     if st.button("Dự đoán"):
